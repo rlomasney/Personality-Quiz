@@ -30,13 +30,47 @@ def add_to_ctn(value):
 
 def add_to_agr(value):
     Agreeableness_list.append(value)
-    print(f"I have returned the value of {value} to the Agreeableness list")
 
 def add_to_nrt(value):
     Neuroticism_list.append(value)
 
 def print_agr():
     print(Agreeableness_list)
+
+def opn_score():
+    total = 0
+    for num in Openness_list:
+        total += num
+    total = float(total/4)
+    print(total)
+
+def nrt_score():
+    total = 0
+    for num in Neuroticism_list:
+        total += num
+    total = float(total/4)
+    print(total)
+
+def agr_score():
+    total = 0
+    for num in Agreeableness_list:
+        total += num
+    total = float(total/4)
+    print(total)
+
+def ctn_score():
+    total = 0
+    for num in Conscientiousness_list:
+        total += num
+    total = float(total/4)
+    print(total)
+
+def ext_score():
+    total = 0
+    for num in Extraversion_list:
+        total += num
+    total = float(total/4)
+    print(total)
 
 
 ###################################################################################
@@ -559,7 +593,7 @@ Next_p5 = tk.Button(
     master=answers_labels_4,
     text="Next",
     relief="raised",
-    command=five_to_finish
+    command= lambda: (five_to_finish, opn_score, ext_score, agr_score, ctn_score, nrt_score)
 )
 
 question_labels_5.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
@@ -587,5 +621,7 @@ Next_p5.place(x=0, y=480)
 ###################################################################################################################
 
 #EVERYTHING TO DO WITH THE RESULTS PAGE
+
+
 
 window.mainloop()
