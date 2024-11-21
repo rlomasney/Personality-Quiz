@@ -3,6 +3,43 @@ import tkinter as tk
 window = tk.Tk()
 window.title("Window")
 
+##################################################################################
+
+#MISC THINGS NEEDED BEFOREHAND
+
+def a1_value():
+    print("I have returned the value of 0 to the correct list")
+    return 0
+
+def a2_value():
+    print("I have returned the value of 1 to the correct list")
+    return 1
+
+def a3_value():
+    print("I have returned the value of -1 to the correct list")
+    return -1
+
+Extraversion_list = []
+Openness_list = []
+Conscientiousness_list = []
+Agreeableness_list = []
+Neuroticism_list = []
+
+def add_to_ext(value):
+    Extraversion_list.append(value)
+
+def add_to_opn(value):
+    Openness_list.append(value)
+
+def add_to_ctn(value):
+    Conscientiousness_list.append(value)
+
+def add_to_agr(value):
+    Agreeableness_list.append(value)
+    print(f"I have returned the value of{value} to the Agreeableness list")
+
+def add_to_nrt(value):
+    Neuroticism_list.append(value)
 
 ###################################################################################
 
@@ -24,7 +61,7 @@ welcome = tk.Label(
 )
 def start_to_p1():
     page_welcome.forget()
-    page_2.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+    page_1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 start = tk.Button(
     master=page_welcome,
     text="Begin",
@@ -67,10 +104,14 @@ Next_p1 = tk.Button(
     text="Next",
     command=one_to_two
 )
+p1_working = tk.Label(
+    master=question_labels_1,
+    text= "is p1 working"
+)
 
 question_labels_1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 answers_labels_1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-
+p1_working.pack()
 # Question_1.place(x= 0, y= 0)
 # q1_a1.place(x=00, y=0)
 # q1_a2.place(x=00, y=30)
@@ -124,9 +165,14 @@ Next_p2 = tk.Button(
     text="Next",
     command=two_to_three
 )
+p2_working = tk.Label(
+    master=question_labels_2,
+    text= "is page 2 working?"
+)
 
 question_labels_2.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 answers_labels_2.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+p2_working.pack()
 
 # Question_5.place(x= 0, y= 0)
 # q5_a1.place(x=00, y=0)
@@ -182,9 +228,14 @@ Next_p3 = tk.Button(
     text="Next",
     command=three_to_four
 )
+p3_working = tk.Label(
+    master=question_labels_3,
+    text= "this is working"
+)
 
 question_labels_3.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 answers_labels_3.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
+p3_working.pack()
 
 # Question_9.place(x= 0, y= 0)
 # q9_a1.place(x=00, y=0)
@@ -233,12 +284,13 @@ answers_labels_4 = tk.Frame(
 
 def four_to_five():
     page_4.forget()
+    page_5.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
 
 Next_p4 = tk.Button(
     master=answers_labels_4,
     text="Next",
     relief="raised",
-    command=four_to_five
+    command=four_to_five,
 )
 
 Question_13 = tk.Label(                  #Measuring Openness
@@ -250,20 +302,24 @@ q13_a1 = tk.Button(                      #Assigning a neutral value of 0 to this
     master= answers_labels_4,
     text= "I don't find myself excited, but I am not scared to.",
     relief= "raised",
-    bg= "grey"
+    bg= "grey",
+    command=add_to_agr(a1_value)
 )
 q13_a2 = tk.Button(                      #Assigning a positive value of postive 1 to this answer
     master=answers_labels_4,
     text= "I love to meet new people, and strike up conversation with them.",
     relief= "raised",
-    bg= "grey"
+    bg= "grey",
+    command=a2_value
 )
 q13_a3 = tk.Button(                      #Assigning a negative value of -1 to this answer
     master=answers_labels_4,
     text= "I get nervous and tend to avoid meeting new people.",
     relief= "raised",
-    bg= "grey"
+    bg= "grey",
+    command=a2_value
 )
+
 
 Question_14 = tk.Label(                  #Measuring Agreableness
     master=question_labels_4,
